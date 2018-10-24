@@ -32,6 +32,9 @@ void loopInput()
 #define NS_TITLE_ID 0x010000000000001F
 #define NS_APPMAN_SAVE_ID 0x8000000000000043
 
+#define BCAT_TITLE_ID 0x010000000000000C
+#define BCAT_PREPO_SAVE_ID 0x80000000000000A1
+
 int main(int argc, char **argv)
 {
     Result rc;
@@ -44,7 +47,7 @@ int main(int argc, char **argv)
         printf("Failed to initialize pm:shell. Error code: 0x%08x\n", rc);
         goto loop_input;
     }
-
+/*
     printf("Backing up es common save data...\n");
     backupSystemSavedata(ES_TITLE_ID, ES_COMMON_SAVE_ID);
     fsdevUnmountDevice("s4ve");
@@ -54,6 +57,9 @@ int main(int argc, char **argv)
     printf("Backing up ns_appman save data...\n");
     backupSystemSavedata(NS_TITLE_ID, NS_APPMAN_SAVE_ID);
     fsdevUnmountDevice("s4ve");
+*/
+    printf("Backing up prepo save data...\n");
+    backupSystemSavedata(BCAT_TITLE_ID, BCAT_PREPO_SAVE_ID);
 
     loop_input:
     loopInput();
